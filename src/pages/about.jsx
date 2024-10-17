@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import img1 from '../assets/images/img1.png';
 import img2 from '../assets/images/img2.png';
 import img3 from '../assets/images/img3.png';
 import Navbar from '../components/navbar';
 
 const About = () => {
+  const [randomFox, setRandomFox] = useState("");
+
+  const changeFox = () => {
+    fetch("https://randomfox.ca/floof")
+    .then ((response)=> response.json())
+    .then ((data) => {
+      console.log(data.message);
+      setRandomFox(data.message);
+    })
+  }
+
+  useEffect(
+    () => {
+    changeFox()
+    }, [])
+
+
   return (
     <div>
         <Navbar/>
@@ -39,6 +56,13 @@ const About = () => {
         </div>
 
       </div>
+
+      <div className='space-y-4 flex  flex-col justify-center items-center pt-10'>
+        <h1 className='text-xl'>Fox image</h1>
+      <img className='w-80 h-52 rounded' src={randomFox} alt="img" />
+      <button className=' text-2xl border-black border-2 h-14 rounded w-32' onClick={changeFox}>Next</button>
+      </div>
+      
     </div>
   );
 }

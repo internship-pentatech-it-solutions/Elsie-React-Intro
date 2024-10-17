@@ -6,9 +6,11 @@ const Contact = () => {
     return (
         <div>
             <Navbar/>
-             <div className="bg-white py-5 flex justify-center">
-            <div className="border border-gray-300 rounded-lg p-6 shadow-lg w-[40vw]">
+             <div className="bg-white py-5 flex justify-center ">
+            <div className="border  border-gray-300 rounded-lg p-6 shadow-lg w-[40vw]">
+
                 <div className='relative'>
+                    
                     <img className='h-[30vh] w-[40vw] object-cover' src={hero} alt="img" />
                     <div className="absolute inset-0 bg-black opacity-65"></div>
 
